@@ -1,0 +1,7 @@
+waktu,nama_file,plate,plate_key,raw_ocr,status,owner_name,vehicle_type,description,confidence_yolo,ocr_score,ocr_version,result_image,plate_crop
+2026-06-08 01:02:21,download.png,1CPPITDA1YOLOHRI,1CPPITDA1YOLOHRI2148,1CPPITDA1YOLOHRI2148,Tidak Terdaftar,-,-,Plat tidak ditemukan di database,0.89,110,gray,result_20260608_010216_4ee48f.png,crop_20260608_010216_4ee48f.png
+2026-06-08 01:02:46,images (3).jpg,IB 1387 DKC,IB1387DKC,IB1387DKC,Tidak Terdaftar,-,-,Plat tidak ditemukan di database,0.94,195,inverted,result_20260608_010244_42d33f.jpg,crop_20260608_010244_42d33f.jpg
+2026-06-08 01:04:13,plat-113-_jpg.rf.6bb94bc3bbc1d4a344d2599e14499d05.jpg,H 2296 SB,H2296SB,H2296SB,Tidak Terdaftar,-,-,Plat tidak ditemukan di database,0.95,185,gray,result_20260608_010340_140db0.jpg,crop_20260608_010340_140db0.jpg
+2026-06-08 01:05:31,plat-113-_jpg.rf.6bb94bc3bbc1d4a344d2599e14499d05.jpg,H 2296 SB,H2296SB,H2296SB,Terdaftar,Muhamad Jibril,Motor,Data contoh,0.95,185,gray,result_20260608_010456_6d501d.jpg,crop_20260608_010456_6d501d.jpg
+2026-06-08 01:10:47,capture_1780855831814.jpg,H 2296 SB,H2296SB,H2296SB,Terdaftar,Muhamad Jibril,Motor,Data contoh,0.95,185,gray,result_20260608_011035_f4800c.jpg,crop_20260608_011035_f4800c.jpg
+2026-06-08 01:11:47,capture_1780855899512.jpg,H 3520 BLG,H3520BLG,H3520BLG,Tidak Terdaftar,-,-,Plat tidak ditemukan di database,0.96,190,blur,result_20260608_011140_38f146.jpg,crop_20260608_011140_38f146.jpg
