@@ -43,22 +43,11 @@ Dokumen ini berisi panduan langkah-demi-langkah untuk mendeploy backend **FastAP
    *   **Project Path:** Pilih direktori tempat file diekstrak, yaitu `/www/wwwroot/plat-detect-backend`
    *   **Python Version:** Pilih versi Python yang sesuai (disarankan Python **3.10.x** ke atas). Jika belum ada, Anda bisa menginstal versi Python terlebih dahulu melalui tombol *Python Version* di Python Manager.
    *   **Framework:** Pilih **FastAPI** (atau pilih **Other** jika tidak ada).
-   *   **Startup Mode / Web Server:** 
-       > [!IMPORTANT]
-       > **FastAPI** adalah framework ASGI (Asynchronous). Oleh karena itu, **uWSGI TIDAK BISA digunakan**. Anda harus memilih salah satu dari opsi berikut:
-       > 
-       > **Pilihan A: Gunicorn (Sangat Direkomendasikan)**
-       > - Pilih **gunicorn** sebagai Startup Mode.
-       > - Pada konfigurasi Gunicorn, aaPanel akan mengizinkan Anda memasukkan target app. Isi dengan `app.main:app`.
-       > - Pastikan Anda memasukkan parameter worker class uvicorn di konfigurasi argumennya: `-k uvicorn.workers.UvicornWorker` agar Gunicorn dapat menjalankan aplikasi ASGI FastAPI.
-       > 
-       > **Pilihan B: Custom Startup Command (Uvicorn Langsung)**
-       > - Pilih **Custom / Command** sebagai Startup Mode.
-       > - Masukkan perintah startup langsung menunjuk ke virtual environment yang dibuat aaPanel, contoh:
-       >   `/www/server/pyporject_evn/plat-detect-backend_venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 4`
-       >   *(Sesuaikan path folder venv Anda)*.
-   *   **Startup File/Entry Point:** Isi dengan `app/main.py`.
-   *   **Run command / Target App:** Isi dengan `app:app` (atau `app.main:app` tergantung format form aaPanel Anda).
+   *   **Comm protocols:** Pilih **ASGI** (sangat penting, karena FastAPI menggunakan protokol Asynchronous untuk memproses request secara concurrent).
+   *   **Startup Command:** Masukkan nama entry point aplikasi beserta parameter port, contoh:
+       `app.main:app --host 127.0.0.1 --port 8000 --workers 4`
+       *(Artinya memanggil objek `app` di dalam `app/main.py` dengan port internal 8000 dan 4 worker proses)*.
+   *   **Project Init Command:** Biarkan kosong (**blank**), karena logika inisialisasi folder dan file CSV sudah diotomatisasi di dalam kode Python kita.
    *   **Port:** Masukkan port yang ingin Anda gunakan (misal: `8000`).
    *   **Execution Environment:** Pastikan opsi **virtualenv** dicentang agar dependencies terisolasi.
    *   **Autostart on boot:** Centang agar backend otomatis menyala saat server reboot.
