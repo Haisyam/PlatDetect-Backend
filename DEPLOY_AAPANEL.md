@@ -43,11 +43,13 @@ Dokumen ini berisi panduan langkah-demi-langkah untuk mendeploy backend **FastAP
    *   **Project Path:** Pilih direktori tempat file diekstrak, yaitu `/www/wwwroot/plat-detect-backend`
    *   **Python Version:** Pilih versi Python yang sesuai (disarankan Python **3.10.x** ke atas). Jika belum ada, Anda bisa menginstal versi Python terlebih dahulu melalui tombol *Python Version* di Python Manager.
    *   **Framework:** Pilih **FastAPI** (atau pilih **Other** jika tidak ada).
-   *   **Comm protocols:** Pilih **ASGI** (sangat penting, karena FastAPI menggunakan protokol Asynchronous untuk memproses request secara concurrent).
-   *   **Startup Command:** Masukkan nama entry point aplikasi beserta parameter port, contoh:
-       `app.main:app --host 127.0.0.1 --port 8000 --workers 4`
-       *(Artinya memanggil objek `app` di dalam `app/main.py` dengan port internal 8000 dan 4 worker proses)*.
-   *   **Project Init Command:** Biarkan kosong (**blank**), karena logika inisialisasi folder dan file CSV sudah diotomatisasi di dalam kode Python kita.
+   *   **Web Server / Startup Mode:** Pilih **Gunicorn** (bukan uWSGI, agar tidak muncul error "uWsgi Service Not Support Asgi Protocol").
+   *   **Comm protocols:** Pilih **ASGI** (FastAPI memerlukan ASGI untuk konkurensi).
+   *   **Startup Command:** Masukkan entry point aplikasi Anda:
+       `app.main:app`
+       > [!NOTE]
+       > Kami telah menyediakan file [gunicorn.conf.py](file:///c:/Users/HaisyamDev/Documents/CODING/Javascript%20-%20Project/PLAT%20DETECT/backend/gunicorn.conf.py) di root folder backend. File ini akan otomatis dibaca oleh Gunicorn untuk mengonfigurasi `worker_class = 'uvicorn.workers.UvicornWorker'` (Uvicorn) agar FastAPI berjalan dengan performa penuh sebagai ASGI di bawah Gunicorn.
+   *   **Project Init Command:** Biarkan kosong (**blank**), karena inisialisasi folder/CSV sudah ditangani otomatis di dalam kode.
    *   **Port:** Masukkan port yang ingin Anda gunakan (misal: `8000`).
    *   **Execution Environment:** Pastikan opsi **virtualenv** dicentang agar dependencies terisolasi.
    *   **Autostart on boot:** Centang agar backend otomatis menyala saat server reboot.
